@@ -12,7 +12,7 @@ public class Employee {
         this.fullName = fullName;
         this.salary = salary;
         this.id = idCount++;
-        this.departament = getDepartament();
+        this.departament = departament;
     }
 
     public int getTotal() {

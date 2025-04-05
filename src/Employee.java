@@ -1,10 +1,19 @@
 public class Employee {
+
+    private static int idCount = 1;
+    private static int total = 0;
+
     private int id;
     private String fullName;
     private int salary;
-    private static int idCount = 1;
     private int departament;
-    private static int total = 0;
+
+    public Employee(String fullName, int departament, int salary) {
+        this.fullName = fullName;
+        this.salary = salary;
+        this.id = idCount++;
+        this.departament = getDepartament();
+    }
 
     public int getTotal() {
         return total;
@@ -34,11 +43,19 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(String fullName, int departament, int salary) {
-        this.fullName = fullName;
-        this.salary = salary;
-        this.id = idCount++;
-        this.departament = getDepartament();
+    public String toString() {
+        return "ФИО - " + getFullName() + ", в департаменте " + getDepartament() + ". Зарплата - " + getSalary() + " рублей, id работника " + getId() + ".";
+    }
+
+    public int hashCode() {
+        return Integer.hashCode(getId());
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee employee = (Employee) obj;
+        return getId() == employee.getId();
     }
 
     public static void printAllEmployees(Employee[] employees) {
@@ -47,10 +64,6 @@ public class Employee {
                 System.out.println(emp);
             }
         }
-    }
-
-    public String toString() {
-        return "ФИО - " + getFullName() + ", в департаменте " + getDepartament() + ". Зарплата - " + getSalary() + " рублей, id работника " + getId() + ".";
     }
 
     public static int calculatedTotalSalary(Employee[] employees) {
@@ -66,10 +79,8 @@ public class Employee {
     public static Employee findEmployeeWithMinSalary(Employee[] employees) {
         Employee minSalaryEmployee = null;
         for (Employee employee : employees) {
-            if (employee != null) {
-                if (minSalaryEmployee == null || employee.getSalary() < minSalaryEmployee.getSalary()) {
-                    minSalaryEmployee = employee;
-                }
+            if (employee != null && (minSalaryEmployee == null || employee.getSalary() < minSalaryEmployee.getSalary())) {
+                minSalaryEmployee = employee;
             }
         }
         return minSalaryEmployee;
@@ -78,10 +89,8 @@ public class Employee {
     public static Employee findEmployeeWithMaxSalary(Employee[] employees) {
         Employee maxSalaryEmployee = null;
         for (Employee employee : employees) {
-            if (employee != null) {
-                if (maxSalaryEmployee == null || employee.getSalary() > maxSalaryEmployee.getSalary()) {
-                    maxSalaryEmployee = employee;
-                }
+            if (employee != null && (maxSalaryEmployee == null || employee.getSalary() > maxSalaryEmployee.getSalary())) {
+                maxSalaryEmployee = employee;
             }
         }
         return maxSalaryEmployee;
@@ -99,20 +108,9 @@ public class Employee {
         return total / idCount;
     }
 
-    public int hashCode() {
-        return Integer.hashCode(getId());
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Employee employee = (Employee) obj;
-        return getId() == employee.getId();
-    }
-
     public static void printFuuNames(Employee[] employees) {
         for (int i = 0; i < idCount; i++) {
-            if (employees[i] !=null) {
+            if (employees[i] != null) {
                 System.out.println(employees[i].getFullName());
             }
 

@@ -1,9 +1,9 @@
 public class Main {
-
     public static Employee[] employees = new Employee[10];
 
     public static void main(String[] args) {
         initializeEmployees();
+
         int totalSalary = Employee.calculatedTotalSalary(employees);
         System.out.println("Общая зарплата: " + totalSalary + " рублей.");
         var min = Employee.findEmployeeWithMinSalary(employees);
@@ -13,6 +13,8 @@ public class Main {
         int average = Employee.averageSalary(employees);
         System.out.println("Средняя зарплата " + average + " рублей.");
 
+        Employee.printAllEmployees(employees);
+        Employee.printFuuNames(employees);
     }
 
     public static void initializeEmployees() {
@@ -25,9 +27,5 @@ public class Main {
         employees[6] = new Employee("Вольфрам Зульфия Амурфовна", 4, 123_456);
         employees[7] = new Employee("Черепан Максим Леонидович", 3, 101_099);
         employees[8] = new Employee("Прудников Артём Сергеевич", 5, 99_909);
-        Employee.printAllEmployees(employees);
-        Employee.printFuuNames(employees);
-
     }
-
 }

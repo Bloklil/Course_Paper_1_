@@ -4,6 +4,16 @@ public class Main {
     public static void main(String[] args) {
         initializeEmployees();
 
+        Employee.printAllEmployees(employees);
+        Employee.printFuuNames(employees);
+        Employee.printAllEmployeesInDepartment(employees, 3);  //затраты по отделу
+        Employee.indexSalary(employees, 10);  //индексация на 10%
+        Employee.printEmployeesDep(employees, 1);
+        Employee.indexSalaryDep(employees, 100, 1); //индексация отдела
+        Employee.printThresholdEmployessSalaryMin(employees, 111000);
+        Employee.printThresholdEmployessSalaryMax(employees, 129000);
+
+
         int totalSalary = Employee.calculatedTotalSalary(employees);
         System.out.println("Общая зарплата: " + totalSalary + " рублей.");
         var min = Employee.findEmployeeWithMinSalary(employees);
@@ -12,9 +22,14 @@ public class Main {
         System.out.println("Сотрудник с максимальной ЗП: " + max);
         int average = Employee.averageSalary(employees);
         System.out.println("Средняя зарплата " + average + " рублей.");
+        var minDep = Employee.employeeWithMinSalaryByDepartment(employees, 3); //min по департаменту
+        System.out.println(minDep);
+        var maxDep = Employee.employeeWithMaxSalaryByDepartment(employees, 5); //max по департаменту
+        System.out.println(maxDep);
+        double averageDep = Employee.averageSalaryByDepartment(employees, 6);  //средняя по департаменту
+        System.out.println("Средняя ЗП по отделу: " + averageDep + " рублей.");
 
-        Employee.printAllEmployees(employees);
-        Employee.printFuuNames(employees);
+
     }
 
     public static void initializeEmployees() {

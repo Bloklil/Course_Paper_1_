@@ -43,19 +43,19 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String toString() {
-        return "ФИО - " + getFullName() + ", в департаменте " + getDepartament() + ". Зарплата - " + getSalary() + " рублей, id работника " + getId() + ".";
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee employee = (Employee) obj;
+        return getId() == employee.getId();
     }
 
     public int hashCode() {
         return Integer.hashCode(getId());
     }
 
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Employee employee = (Employee) obj;
-        return getId() == employee.getId();
+    public String toString() {
+        return "ФИО - " + getFullName() + ", в департаменте " + getDepartament() + ". Зарплата - " + getSalary() + " рублей, id работника " + getId() + ".";
     }
 
     public static void printAllEmployees(Employee[] employees) {

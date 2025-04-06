@@ -13,7 +13,6 @@ public class Main {
         Employee.printThresholdEmployessSalaryMin(employees, 111000);
         Employee.printThresholdEmployessSalaryMax(employees, 129000);
 
-
         int totalSalary = Employee.calculatedTotalSalary(employees);
         System.out.println("Общая зарплата: " + totalSalary + " рублей.");
         var min = Employee.findEmployeeWithMinSalary(employees);
@@ -28,7 +27,6 @@ public class Main {
         System.out.println(maxDep);
         double averageDep = Employee.averageSalaryByDepartment(employees, 6);  //средняя по департаменту
         System.out.println("Средняя ЗП по отделу: " + averageDep + " рублей.");
-
 
     }
 

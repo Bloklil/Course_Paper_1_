@@ -43,6 +43,7 @@ public class Employee {
         this.salary = salary;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -50,10 +51,12 @@ public class Employee {
         return getId() == employee.getId();
     }
 
+    @Override
     public int hashCode() {
         return Integer.hashCode(getId());
     }
 
+    @Override
     public String toString() {
         return "ФИО - " + getFullName() + ", в департаменте " + getDepartament() + ". Зарплата - " + getSalary() + " рублей, id работника " + getId() + ".";
     }

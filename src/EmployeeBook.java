@@ -156,7 +156,8 @@ class EmployeeBook {
     public void printEmployeesDep(int departament) {
         for (Employee employee : employees) {
             if (employee != null && employee.getDepartament() == departament) {
-                System.out.println(" id сотрудника: " + employee.getId() + ", ФИО: " + employee.getFullName() + ". Зарплата: " + employee.getSalary());
+                System.out.println(" id сотрудника: " + employee.getId() + ", ФИО: "
+                        + employee.getFullName() + ". Зарплата: " + employee.getSalary());
             }
         }
     }
@@ -170,18 +171,20 @@ class EmployeeBook {
         }
     }
 
-    public void printThresholdEmployessSalaryMin(double Threshold) {
+    public void printThresholdEmployessSalaryMin(int threshold) {
         for (Employee employee : employees) {
-            if (employee != null && employee.getSalary() < Threshold) {
-                System.out.println("Работники, получающие меньше - " + Threshold + " рублей. id сотрудника: " + employee.getId() + ", ФИО: " + employee.getFullName() + ". Зарплата: " + employee.getSalary());
+            if (employee != null && employee.getSalary() < threshold) {
+                System.out.println("Работники, получающие меньше - " + threshold + " рублей. id сотрудника: "
+                        + employee.getId() + ", ФИО: " + employee.getFullName() + ". Зарплата: " + employee.getSalary());
             }
         }
     }
 
-    public void printThresholdEmployessSalaryMax(double Threshold) {
+    public void printThresholdEmployessSalaryMax(int threshold) {
         for (Employee employee : employees) {
-            if (employee != null && employee.getSalary() >= Threshold) {
-                System.out.println("Работники, получающие больше - " + Threshold + " рублей. id сотрудника: " + employee.getId() + ", ФИО: " + employee.getFullName() + ". Зарплата: " + employee.getSalary());
+            if (employee != null && employee.getSalary() >= threshold) {
+                System.out.println("Работники, получающие больше - " + threshold + " рублей. id сотрудника: "
+                        + employee.getId() + ", ФИО: " + employee.getFullName() + ". Зарплата: " + employee.getSalary());
             }
         }
     }
